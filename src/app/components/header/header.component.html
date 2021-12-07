@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/img/Todoit.png" alt="">
+    </a>
+    
+    <button 
+     class="navbar-toggler" 
+     data-bs-toggle="collapse"
+     data-bs-target="#navbarNavAltMarkup"
+     aria-controls="navbarNavAltMarkup" 
+     aria-expanded="false" 
+     aria-label="Toggle navigation"
+     >
+        <span class="line"></span> 
+        <span class="line"></span> 
+        <span class="line"></span>
+</button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" [routerLink]="['/home']">INICIO</a>
+        <a class="nav-link active" aria-current="page" [routerLink]="['/login']"*ngIf="!this.show.showMenu()">INICIAR SESIÓN</a>
+        <a class="nav-link active" aria-current="page" [routerLink]="['/solicitar']" *ngIf="this.show.showMenu()" >SOLICITAR VIAJE</a>
+        <a class="nav-link active" aria-current="page" [routerLink]="['/estado']"*ngIf="this.show.showMenu()" >ESTADO DEL VIAJE</a>
+        <a class="nav-link active" aria-current="page" [routerLink]="['/historial']"*ngIf="this.show.showMenu()">HISTORIAL</a>
+        <a class="nav-link active" aria-current="page" [routerLink]="['/login']" *ngIf="this.show.showMenu()" (click)="logout()">CERRAR SESION</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!--<div class="content">
+    <input type="checkbox" id="btn-nav" class="checkbox">
+    <header>
+      <div class="header-container">
+        <img class="header-logo" src="../../../assets/img/Todoit.png">
+        <label for="btn-nav" class="btn-label">
+          <div class="header-button"></div>
+        </label>
+      </div>
+    </header>
+    
+    <nav class="menu">
+      <ul>
+        <li [routerLink]="['/home']">INICIO</li>
+        <li [routerLink]="['/login']">INICIAR SESIÓN</li>
+        <li [routerLink]="['/solicitar']">SOLICITAR VIAJE</li>
+        <li [routerLink]="['/estado']">ESTADO DEL VIAJE</li>
+        <li [routerLink]="['/historial']">HISTORIAL</li>
+        <li [routerLink]="['/login']" class="nav_item">CERRAR SESION</li>
+      </ul>      
+           
+    </nav>
+
+</div>
+
+
+<div class="MenuDestok">
+  <div class="menuLogo">
+    <img class="logo" src="../../../assets/img/Todoit.png">
+  </div>
+   <ul>
+        <li [routerLink]="['/home']">INICIO</li>
+        <li [routerLink]="['/login']">INICIAR SESIÓN</li>
+        <li [routerLink]="['/solicitar']">SOLICITAR VIAJE</li>
+        <li [routerLink]="['/estado']" >ESTADO DEL VIAJE</li>
+        <li [routerLink]="['/historial']" >HISTORIAL</li>
+        <li [routerLink]="['/login']" >CERRAR SESION</li>
+      </ul>   
+</div>-->
