@@ -18,7 +18,8 @@ form{
     
 
 button{
-    width: 250px;  
+    width: 250px;
+    margin-bottom: 10px;  
 }
    
 .mat-form-field-appearance-fill{
@@ -30,11 +31,28 @@ section{
     animation-duration: 2s;
     height: calc(100vh - 60px - 60px);
 }
+a{
+    margin-left: 20px;
+}
+
+
 
 @media (min-width:700px){
    
     section{
         height: calc(110vh - 60px - 60px);
     }  
+    .imgFormLogo {
+        img{
+            
+            margin-top: 0px;
+        }
+            
+    } 
+    a{
+        margin-left: 20px;
+        
+      
+    }
    
 }   

@@ -5,6 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { EstadoViajesComponent } from './pages/estado-viajes/estado-viajes.component';
 import { HistorialViajesComponent } from './pages/historial-viajes/historial-viajes.component';
 import { SolicitarViajeComponent } from './pages/solicitar-viaje/solicitar-viaje.component';
+import { RegisterComponent } from './pages/register/register.component';
 const routes: Routes = [
   {
     path:'home',
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path:'solicitar',
     component:SolicitarViajeComponent
+  },
+  {
+    path:'registro',
+    component:RegisterComponent
   },
   {
     path:'**',

@@ -1,0 +1,42 @@
+
+<div class="FormuRegistro">
+    <h3>Registrate</h3>
+    <form [formGroup]="profileForm" class="example-form" (ngSubmit)="sendData()" id="formRegister"  autocomplete="off">
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nombre Completo:</mat-label>
+        <input name="fullName" matInput formControlName="fullName" id="fullName" type="text" [value]="user.fullName" autocomplete="nope" required>
+      </mat-form-field>
+    </p>
+   
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email:</mat-label>
+        <input name="email" matInput formControlName="email" id="email" type="email" [value]="user.email"
+         autocomplete="nope"  required>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Contraseña:</mat-label>
+        <input name="password" matInput formControlName="password" id="password" type="password" [value]="user.password" 
+        autocomplete="nope"  required >
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill" >
+        <mat-label>Direccion:</mat-label>
+        <input name="address" matInput  formControlName="address" id="address" type="text" [value]="user.address" autocomplete="nope" >
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill" >
+        <mat-label>Teléfono:</mat-label>
+        <input name="cellPhone" matInput formControlName="cellPhone" id="cellPhone" type="text" [value]="user.cellPhone" autocomplete="nope"  required >
+      </mat-form-field>
+    </p>
+    <button [disabled]="profileForm.invalid"  mat-raised-button color="primary" class="btnIniciar" type="submit">Enviar</button>
+  
+    </form>
+  </div>
+  

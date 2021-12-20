@@ -7,6 +7,7 @@ import { LoginServiceService } from 'src/app/servicios/login-service.service';
 import { Welcome } from 'src/app/interfaces/login';
 import { User } from 'src/app/interfaces/user';
 import { ShowMenuService } from 'src/app/servicios/show-menu.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -23,8 +24,7 @@ export class LoginComponent implements OnInit{
   }
 
   constructor(private router: Router, private localStorageService:LocalStorageService, 
-    private loginService: LoginServiceService, private showMenuService:ShowMenuService,
-    ) { 
+    private loginService: LoginServiceService ) { 
     
   }
 
@@ -59,7 +59,11 @@ export class LoginComponent implements OnInit{
         this.router.navigate(['home'])
 
       },(error)=>{
-        console.log('Este es el error', error.error)
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'El usuario no existe ',
+        })
       });
      
      
