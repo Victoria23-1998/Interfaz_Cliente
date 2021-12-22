@@ -23,7 +23,7 @@
         <a class="nav-link active" aria-current="page" [routerLink]="['/solicitar']" *ngIf="this.show.showMenu()" >SOLICITAR VIAJE</a>
         <a class="nav-link active" aria-current="page" [routerLink]="['/estado']"*ngIf="this.show.showMenu()" >ESTADO DEL VIAJE</a>
         <a class="nav-link active" aria-current="page" [routerLink]="['/historial']"*ngIf="this.show.showMenu()">HISTORIAL</a>
-        <a class="nav-link active" aria-current="page" [routerLink]="['/login']" *ngIf="this.show.showMenu()" (click)="logout()">CERRAR SESION</a>
+        <a class="nav-link active" aria-current="page" *ngIf="this.show.showMenu()" (click)="logout()">CERRAR SESION</a>
       </div>
     </div>
   </div>

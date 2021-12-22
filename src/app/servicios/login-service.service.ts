@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient} from '@angular/common/http';
+import { forkJoin, Observable } from 'rxjs';
 import { Welcome } from '../interfaces/login';
-import { FormGroup } from '@angular/forms';
+import { DataUserLogin} from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class LoginServiceService {
 
   
@@ -15,15 +16,17 @@ export class LoginServiceService {
    }
 
   public getUsers(): Observable<Welcome> {
-    //GET
+    
     return this.http.get<Welcome>('/api/Users?userOperation=1')
                     
   }
-  public Login(email:string, password:string): Observable<Welcome>{
+  
+
+  public getLogin(email:string, password:string): Observable<Welcome>{
     return this.http.get<Welcome>(`/api/Login?email=${email}&password=${password}`)
                     
   }
-  //registro
+  
   public addUsers(body: Welcome): Observable<Welcome> {
     return this.http.post<Welcome>('/api/Users', body)
   }
@@ -31,3 +34,4 @@ export class LoginServiceService {
   
 
 }
+

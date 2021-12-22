@@ -1,6 +1,4 @@
 import { Component, OnInit, ViewChild,AfterViewInit } from '@angular/core';
-import { Tabla, TravelEquipmentDTO } from 'src/app/interfaces/viaje';
-import { Equipment } from 'src/app/interfaces/viaje';
 import { Local } from 'src/app/interfaces/local';
 import { LocalStorageService } from 'src/app/servicios/local-storage.service';
 import { EstadoViajeService } from 'src/app/servicios/estado-viaje.service';
@@ -17,7 +15,7 @@ import {MatPaginator} from '@angular/material/paginator';
 
 export class EstadoViajesComponent implements OnInit,AfterViewInit {
   
-
+  isloading:boolean=true
 
  constructor(private estadoViajeService: EstadoViajeService, private localStorageService:LocalStorageService) { }
 
@@ -43,12 +41,9 @@ export class EstadoViajesComponent implements OnInit,AfterViewInit {
   ngOnInit(): void {
     this.local= this.localStorageService.getLocal('Usuario')
     this.userId = this.local.id as string
-    
-
     this.estadoViajeService.getEquipo(this.userId.toString()).subscribe((data) =>{
-      
       this.dataSource.data = data as Object[]
-      
+      this.isloading=false
     },(error:HttpErrorResponse)=>{
       console.log('Este es el error', error.error)
     });

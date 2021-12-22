@@ -28,5 +28,6 @@ export interface Vehicle {
     isDeleted: number;
 }
 
+
 //Registro
 

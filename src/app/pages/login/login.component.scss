@@ -3,6 +3,7 @@ form{
     width: 230px;
     margin-left: auto;
     margin-right: auto;
+    
 }
    
 .imgFormLogo {
@@ -29,10 +30,12 @@ button{
 section{
     animation:fadeIn;
     animation-duration: 2s;
-    height: calc(100vh - 60px - 60px);
+    height: calc(76.5vh);
+   
 }
 a{
     margin-left: 20px;
+    text-decoration: none;
 }
 
 

@@ -27,9 +27,7 @@ export class SolicitarViajeComponent implements OnInit {
   local:Local={} 
   userId:string = ''
   
-  constructor(private soliciViajeService: SoliciViajeService, private localStorageService:LocalStorageService) {
-
-  } 
+  constructor(private soliciViajeService: SoliciViajeService, private localStorageService:LocalStorageService) {} 
   
   ngOnInit(): void {
     this.local= this.localStorageService.getLocal('Usuario')
@@ -64,7 +62,7 @@ export class SolicitarViajeComponent implements OnInit {
 
     formDirective.resetForm();
     this.formViaje.reset()
-    this.showAlert(this.equipo.marca,this.equipo.falla,this.local.adress as string )
+    this.showAlert(this.equipo.marca,this.equipo.falla,this.local.address as string )
   }
     
     showAlert(marca:string,falla:string,adress:string ){

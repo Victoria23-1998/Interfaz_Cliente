@@ -1,14 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-//import { Historial } from 'src/app/interfaces/historial';
 import { Tabla, TravelEquipmentDTO } from 'src/app/interfaces/viaje';
-import { Equipment } from 'src/app/interfaces/viaje';
 import { Local } from 'src/app/interfaces/local';
 import { LocalStorageService } from 'src/app/servicios/local-storage.service';
 import { EstadoViajeService } from 'src/app/servicios/estado-viaje.service';
 import {MatTableDataSource} from '@angular/material/table';
 import { HttpErrorResponse } from '@angular/common/http';
 import { MatPaginator } from '@angular/material/paginator';
-import { Welcome } from 'src/app/interfaces/login';
+
 
 @Component({
   selector: 'app-historial-viajes',
@@ -16,7 +14,7 @@ import { Welcome } from 'src/app/interfaces/login';
   styleUrls: ['./historial-viajes.component.scss']
 })
 export class HistorialViajesComponent  {
-
+  isloading:boolean=true
   @ViewChild(MatPaginator) paginator!:MatPaginator;
 
   ngAfterViewInit(): void {
@@ -61,7 +59,8 @@ export class HistorialViajesComponent  {
     this.estadoViajeService.getEquipo(this.userId.toString()).subscribe((data) =>{
      
       this.dataSource.data = data as Object[]
-
+      
+      this.isloading=false
     },(error:HttpErrorResponse)=>{
       console.log('Este es el error', error.error)
     });
@@ -118,13 +117,13 @@ export class HistorialViajesComponent  {
        result = "A reparar"
        break;
      case 2:
-       result = "A Reparado"
+       result = "A Reparar"
        break;
      case 3:
-       result = "A Reparado"
+       result = "A Reparar"
        break;
      case 4:
-       result = "A reparar"
+       result = "A Reparar"
        break;
      case 5:
        result = "Reparado"
@@ -139,10 +138,10 @@ export class HistorialViajesComponent  {
        result = "Reparado"
        break;
      case 9:
-       result = "A Reparar"
+       result = "Reparado"
        break;
      case 10:
-       result = "A reparar"
+       result = "A Reparar"
        break;
      default:
        break;
@@ -150,17 +149,5 @@ export class HistorialViajesComponent  {
    }
    return result
   }
- //Fecha entregado
-
-  dateDelivered(state:number){
-    let result:string = ''
-   
-   if(state < 8 ){
-    result = "--"
-   } else{
-     //result = `${this.dataSource.travelEquipmentDTOs[this.dataSource.data.travelEquipmentDTOs.length-1].operationDate | date:'M/d/Y'}`
-   }
-   return result
-  }
-    
+ 
 }

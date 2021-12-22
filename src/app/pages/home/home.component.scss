@@ -13,7 +13,8 @@
 .imgFondoGif{
     position: fixed;
    bottom: Xpx;
-   margin-top: 60px;
+   margin-top: 30px;
+   margin-left: 16px;
 }
  
    
@@ -48,7 +49,8 @@
 main{
     animation:fadeIn;
     animation-duration: 2s;
-    height: calc(100vh - 50px - 60px);
+    height: calc(90vh);
+    background-color: #031922;
 }
     
   
@@ -80,12 +82,12 @@ main{
         height: calc(130vh - 50px - 60px);
     }
     .imgFondoGif{
-      margin-top: 5px;
+     margin-top: -50px;
       margin-left:400px;
     
     }
     .ContentBtn{
-        top: 20%;
+        top:5%
     }
         
    

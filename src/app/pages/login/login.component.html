@@ -2,7 +2,7 @@
     <div class="imgFormLogo">
         <img src="../../../assets/img/Todoit.png" alt="">
     </div>
-    <form [formGroup]="Login" (ngSubmit)="onSubmit()" class="formuLogin">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="formuLogin">
         <mat-form-field appearance="fill">
             <mat-label>Enter your email</mat-label>
             <input name="email" matInput formControlName="email" placeholder="pat@example.com" id="email" required>
@@ -16,7 +16,7 @@
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>
-        <button [disabled]="Login.invalid" mat-raised-button color="primary" class="btnIniciar" type="submit">INICIAR SESION</button>
+        <button [disabled]="loginForm.invalid" mat-raised-button color="primary" class="btnIniciar" type="submit">INICIAR SESION</button>
         <a [routerLink]="['/registro']">¿No tienes cuenta? Haz clic aquí</a>
     </form>
 </section>

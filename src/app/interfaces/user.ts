@@ -2,6 +2,10 @@ export interface User{
     id?:number;
     email?:string,
     fullName?:string
-    adress?: string,
+    address?: string,
     
+}
+export interface DataUserLogin{
+    user:User,
+    error:string
 }

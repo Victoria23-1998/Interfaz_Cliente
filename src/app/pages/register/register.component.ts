@@ -38,34 +38,28 @@ export class RegisterComponent implements OnInit {
     
   };
 
+ constructor(private loginService: LoginServiceService, private router:Router) {}
  
-
-  constructor(private loginService: LoginServiceService, private router:Router) {
+ 
+  ngOnInit(): void {}
   
-   }
- 
-  //Método Get
-  ngOnInit(): void {
-    
-  }
-  //Método Post
   sendData() {
    this.user={
     id:0,
-    email:this.profileForm.controls['email'].value,
-    fullName:this.profileForm.controls['fullName'].value,
-    address:this.profileForm.controls['address'].value,
-    cellPhone:this.profileForm.controls['cellPhone'].value,
+    email:this.profileForm.value.email,
+    fullName:this.profileForm.value. fullName,
+    address:this.profileForm.value.address,
+    cellPhone:this.profileForm.value.cellPhone,
     isAccepted:true,
     isDeleted:false,
     observations: '',
-    password:this.profileForm.controls['password'].value,
+    password:this.profileForm.value.password,
     vehicle: this.vehicle,
     rol:this.rol,
    }
    
     this.loginService.addUsers(this.user).subscribe(respuesta => {
-      console.log(respuesta)
+      
       Swal.fire({
         title: '¡Resgistro Exitoso!',
         text: 'Pulse para continuar',
@@ -73,14 +67,19 @@ export class RegisterComponent implements OnInit {
         confirmButtonText: 'Ok'
       })
     },error=>{
-      console.log(error.error)
-      
+      if(error.error = 'Usuario ya existe'){
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'El Usuario ya existe ',
+        })
+      }
     });
     
    this.router.navigate(['login'])
   }
   
-  // uso validators para hacer las validaciones del formulario 
+ 
   profileForm = new FormGroup({
 
     fullName: new FormControl('', [Validators.required]),
@@ -91,15 +90,5 @@ export class RegisterComponent implements OnInit {
   
 
   });
-
-
-showAlert(){
-  Swal.fire({
-    title: '¡Resgistro Exitoso!',
-    text: 'Pulse para continuar',
-    icon: 'success',
-    confirmButtonText: 'Ok'
-  })
-}
 
 }

@@ -1,8 +1,9 @@
 
 <section class="animate__animated animate__fadeIn contentSolicitar">
-    <h3>FOMULARIO RETIRO DE EQUIPO</h3>
-   
-    <form [formGroup]="formViaje" #formDirective=ngForm  (ngSubmit)="onSubmit(formDirective)" class="forSolicitar">
+
+
+    <form [formGroup]="formViaje" #formDirective=ngForm (ngSubmit)="onSubmit(formDirective)" class="forSolicitar">
+        <h3>FOMULARIO RETIRO DE EQUIPO</h3>
         <p>
             <mat-form-field appearance="fill">
                 <mat-label>Marca</mat-label>
@@ -21,10 +22,10 @@
                 <textarea matInput formControlName="falla"></textarea>
             </mat-form-field>
         </p>
-        
-       
-    
-        <button [disabled]="formViaje.invalid" mat-raised-button color="primary" class="buttom"  >SOLICITAR</button>
+
+
+
+        <button [disabled]="formViaje.invalid" mat-raised-button color="primary" class="buttom">SOLICITAR</button>
     </form>
 </section>
 <footer>

@@ -5,7 +5,9 @@
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
 </mat-form-field>
-
+<div *ngIf="isloading" class="content-loading">
+ <img src="../../../assets/img/Chunk-4s-200px (1).gif" alt="" width="60px">
+</div>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
 
   <!-- Fecha Column -->
@@ -28,13 +30,15 @@
 
   <!-- estado equipo Column -->
   <ng-container matColumnDef="estadoEqui">
-    <th mat-header-cell *matHeaderCellDef> Estado Equi. </th>
+    <th mat-header-cell *matHeaderCellDef> Estado Equipo </th>
     <td mat-cell *matCellDef="let element" > {{descripEstEquip(element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel)}} </td>
   </ng-container>
   <!-- estado envio Column -->
   <ng-container matColumnDef="EstadoEnvio">
-    <th mat-header-cell *matHeaderCellDef> Estado En. </th>
-    <td mat-cell *matCellDef="let element"> {{descripEstate(element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel)}} </td>
+    <th mat-header-cell *matHeaderCellDef> Estado Envio </th>
+    <td mat-cell *matCellDef="let element" [ngClass]="{'pendiente':element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==1||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==2||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==4||
+    element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==7,'curso':element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==3||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==8,'reparado':element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==5,
+  'entregado':element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==9 ||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==6 }"> {{descripEstate(element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel)}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -45,6 +49,7 @@
     <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
   </tr>
 </table>
+
 <mat-paginator [pageSizeOptions]="[5, 10, 20]"
                  showFirstLastButtons 
                  aria-label="Select"
@@ -52,37 +57,4 @@
                  >
 </mat-paginator>
 </section>
-<!--<section class="animate__animated animate__fadeIn" >
-  
-    <div class="container-fluid">
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    <table class="table" >
-        <thead>
-          <tr>
-     
-            <th scope="col">Fecha</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">Estado equipo</th>
-            <th scope="col">Estado envío</th>
-           
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-           
-            <td>22-08</td>
-            <td>Samsung</td>
-            <td>Celular</td>
-            <td>Reparado</td>
-            <td>Entregado</td>
-           
-          </tr>
-        
-        </tbody>
-      </table>
-</section>-->
+

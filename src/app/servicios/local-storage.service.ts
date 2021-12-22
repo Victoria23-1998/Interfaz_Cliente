@@ -10,7 +10,7 @@ export class LocalStorageService {
 
    }
   
-   setLocal(key: string, data: User){
+   setLocal(key: string, data:User){
      localStorage.setItem(key, JSON.stringify(data))
    }
 

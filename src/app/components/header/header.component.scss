@@ -5,12 +5,15 @@
 }
 .navbar{
   background-color: #021e29 !important;
+  
 }
 .navbar-nav{
   a{
     color: whitesmoke !important;
+    
   }
 }
+
 .navbar-toggler{
   width: 47px;
   height: 34px;
@@ -31,20 +34,7 @@
       font-family: 'Syncopate';
     }
   }
-  li{
+  
     
-    --clippy: polygon(0 0, 0 0, 0 100%, 0% 100%) ;
-    &:hover{
-      --clippy:polygon(0 0, 100% 0, 100% 100%, 0 100%) ; 
-    }
-        
-  }
-        
-    li::after{
-     
-      clip-path: var(--clippy) ;
-      transition: clip-path .4s ;
-    }
-       
-}    
+}   
   

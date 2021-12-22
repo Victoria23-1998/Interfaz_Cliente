@@ -4,7 +4,9 @@
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
 </mat-form-field>
-
+<div *ngIf="isloading" class="content-loading">
+  <img src="../../../assets/img/Chunk-4s-200px (1).gif" alt="" width="60px">
+ </div>
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <!-- Fecha Column -->
@@ -33,11 +35,16 @@
   <!-- estado envio Column -->
   <ng-container matColumnDef="EstadoEnvio">
     <th mat-header-cell *matHeaderCellDef> Estado Envio </th>
-    <td mat-cell *matCellDef="let element"> {{descripEstate(element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel)}} </td>
+    <td mat-cell *matCellDef="let element" [ngClass]="{'pendiente':element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==1||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==2||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==7||
+    element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==6,'curso':element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==3,'reparado':element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==5,
+  'entregado':element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==9 ||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==4 ||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==8
+||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==5 }"> {{descripEstate(element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel)}} </td>
   </ng-container>
   <ng-container matColumnDef="FechaEntrega">
     <th mat-header-cell *matHeaderCellDef> Fecha Entrega </th>
-    <td mat-cell *matCellDef="let element"> {{(element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==9?element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].operationDate.slice(0,-17):'--' ) }} </td>
+    <td mat-cell *matCellDef="let element"> {{(element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==9||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==4||
+    element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==8||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==5
+    ?element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].operationDate.slice(0,-17):'--' ) }} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
