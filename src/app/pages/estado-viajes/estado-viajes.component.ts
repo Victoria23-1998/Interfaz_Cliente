@@ -52,41 +52,20 @@ export class EstadoViajesComponent implements OnInit,AfterViewInit {
   
   //Estado del envio
   descripEstate(state:number){
-    let result:string = ''
+    let result:string=''
     switch (state) {
-      case 1:
-        result = "Pendiente"
+      case 1||2||4||7:
+        result = 'pendiente'
         break;
-      case 2:
-        result = "Pendiente"
-        break;
-      case 3:
-        result = "En curso"
-        break;
-      case 4:
-        result = "Pendiente"
+      case 3||8:
+        result = 'curso'
         break;
       case 5:
-        result = "Reparado"
+        result = 'reparado'
         break;
-      case 6:
-        result = "Entrega asignada"
+      case 9||6:
+        result = 'entregado'
         break;
-      case 7:
-        result = "Pendiente"
-        break;
-      case 8:
-        result = "En curso"
-        break;
-      case 9:
-        result = "Entregado"
-        break;
-      case 10:
-        result = "Pendiente"
-        break;
-      default:
-        break;
-     
     }
     return result
   }
@@ -96,45 +75,20 @@ export class EstadoViajesComponent implements OnInit,AfterViewInit {
   descripEstEquip(state:number){
     let result:string = ''
    switch (state) {
-     case 1:
+     case 1||2||3||4:
        result = "A reparar"
        break;
-     case 2:
-       result = "A reparar"
-       break;
-     case 3:
-       result = "A reparar"
-       break;
-     case 4:
-       result = "A reparar"
-       break;
-     case 5:
+     
+     case 5||6||7||8:
        result = "Reparado"
        break;
-     case 6:
-       result = "Reparado"
-       break;
-     case 7:
-       result = "Reparado"
-       break;
-     case 8:
-       result = "Reparado"
-       break;
-     case 9:
+     case 9||10:
        result = "A reparar"
        break;
-     case 10:
-       result = "A reparar"
-       break;
-     default:
-       break;
-    
-   }
+  }
    return result
   }
  
-  
-
   
 }
 

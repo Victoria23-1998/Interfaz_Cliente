@@ -71,37 +71,17 @@ export class HistorialViajesComponent  {
   descripEstate(state:number){
     let result:string = ''
     switch (state) {
-      case 1:
+      case 1||2:
         result = "Pendiente"
         break;
-      case 2:
-        result = "Pendiente"
-        break;
-      case 3:
+     case 3:
         result = "En curso"
         break;
-      case 4:
+      case 4||5||8||9:
         result = "Entregado"
         break;
-      case 5:
-        result = "Entregado"
-        break;
-      case 6:
+      case 7||10||6:
         result = "Pendiente"
-        break;
-      case 7:
-        result = "Pendiente"
-        break;
-      case 8:
-        result = "Entregado"
-        break;
-      case 9:
-        result = "Entregado"
-        break;
-      case 10:
-        result = "Pendiente"
-        break;
-      default:
         break;
      
     }
@@ -113,41 +93,17 @@ export class HistorialViajesComponent  {
   descripEstEquip(state:number){
     let result:string = ''
    switch (state) {
-     case 1:
-       result = "A reparar"
-       break;
-     case 2:
+     
+     case 4||3||2||1||10:
        result = "A Reparar"
        break;
-     case 3:
-       result = "A Reparar"
-       break;
-     case 4:
-       result = "A Reparar"
-       break;
-     case 5:
+     
+     case 8||9||7||6||5:
        result = "Reparado"
-       break;
-     case 6:
-       result = "Reparado"
-       break;
-     case 7:
-       result = "Reparado"
-       break;
-     case 8:
-       result = "Reparado"
-       break;
-     case 9:
-       result = "Reparado"
-       break;
-     case 10:
-       result = "A Reparar"
-       break;
-     default:
        break;
     
    }
    return result
   }
- 
+
 }

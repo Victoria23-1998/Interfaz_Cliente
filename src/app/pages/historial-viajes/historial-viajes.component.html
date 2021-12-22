@@ -35,10 +35,7 @@
   <!-- estado envio Column -->
   <ng-container matColumnDef="EstadoEnvio">
     <th mat-header-cell *matHeaderCellDef> Estado Envio </th>
-    <td mat-cell *matCellDef="let element" [ngClass]="{'pendiente':element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==1||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==2||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==7||
-    element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==6,'curso':element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==3,'reparado':element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==5,
-  'entregado':element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==9 ||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==4 ||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==8
-||element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel==5 }"> {{descripEstate(element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel)}} </td>
+    <td mat-cell *matCellDef="let element" [ngClass]="descripEstate(element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel)"> {{descripEstate(element.travelEquipmentDTOs[element.travelEquipmentDTOs.length-1].statusTravel)}} </td>
   </ng-container>
   <ng-container matColumnDef="FechaEntrega">
     <th mat-header-cell *matHeaderCellDef> Fecha Entrega </th>
