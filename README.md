@@ -8,6 +8,11 @@ https://user-images.githubusercontent.com/85801314/147160433-b6720aa6-8d96-4847-
 # Comenzando 🚀
 Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local.
 
+#Usuario para ingresar a la App
+
+Correo: francouser@gmail.com
+Clave: 123456
+
 1-Primer paso, clonar el repositorio en Git
 ```sh
 $git clone https://github.com/Victoria23-1998/Interfaz_Cliente.git
